@@ -1,0 +1,45 @@
+<nav class="navbar navbar-dark bg-dark mb-5">
+  <a class="navbar-brand" href="/">YourMart Seller Panel</a>
+  <div class="navbar-expand mr-auto">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" routerLink="/" >
+        <i class="fa fa-home"></i>
+        <label>Home</label>
+      </a>
+      
+    </div>
+  </div>
+  <div  class="navbar-expand ml-auto navbar-nav">
+    <div *appAuthenticatedUser="false" class="navbar-nav">
+      
+      <a class="nav-item nav-link" routerLink="/login" routerLinkActive="active">
+        <i class="fa fa-sign-in"></i>
+        <label>Sign In</label>
+      </a>
+      <a class="nav-item nav-link" routerLink="/register" routerLinkActive="active">
+        <i class="fa sign-in"></i>
+        <label>Sign up</label>
+      </a>
+    </div>
+    <div *appAuthenticatedUser="true" class="navbar-nav">
+        <a class="nav-item nav-link" routerLinkActive="active">
+            <i class="fa fa-user"></i>
+            <label>Hello {{ currentSeller.ownerName }}</label>
+          </a>
+      <a class="nav-item nav-link" routerLink="/products" routerLinkActive="active">
+        <i class="fa fa-eye"></i>
+        <label>Products</label>
+      </a>
+      <a class="nav-item nav-link" routerLink="/editor" routerLinkActive="active">
+        <i class="fa fa-plus"></i>
+        <label>Editor</label>
+      </a>
+      
+      <a class="nav-item nav-link" routerLink="/logout" routerLinkActive="active">
+        <i class="fa fa-sign-out"></i>
+        <label>Log out</label>
+      </a>
+    </div>
+  </div>
+</nav>
+

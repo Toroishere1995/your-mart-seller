@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="divLeft">
+      <img [src]="product.productPrimaryImage"
+        class="img-thumbnail" alt="..." height="150" width="150">
+    </div>
+    <div class="divRight" >
+
+      <h3>{{product.productName}}</h3>
+      <p>{{product.sellerProductCode}}</p>
+      <p>{{product.productShortDescription}}</p>
+      <p>{{product.productCategory}}</p>
+      <p>{{product.productStatus}}</p>
+      <a [routerLink]="['/products', product.productId]"> <span>Read
+          more...</span>
+      </a>
+    </div>
+  </div>

@@ -1,0 +1,83 @@
+<h1>Add A new product</h1>
+<a></a>
+<hr>
+<div class="col-md-4" >
+  <form #addPForm="ngForm" (ngSubmit)="addProduct(addPForm.value)" autocomplete="off" >
+    <div class="form-group">
+      <label for="sellerProductCode">Seller Product Code:</label>
+      <em *ngIf="addPForm.controls.sellerProductCode?.invalid &&addPForm.controls.sellerProductCode?.touched||mouseOverAdd">Required</em>
+      <input (ngModel)="sellerProductCode" name="sellerProductCode" required id="sellerProductCode" type="text" class="form-control" placeholder="Seller Product Code..." />
+    </div>
+    <div class="form-group">
+      <label for="productName"> Name:</label>
+      <em *ngIf="addPForm.controls.productName?.invalid &&addPForm.controls.productName?.touched||mouseOverAdd">Required</em>
+      <input (ngModel)="productName" name="productName" required id="productName" type="text" class="form-control" placeholder="Name..." />
+    </div>
+    <div class="form-group">
+      <label for="productShortDescription">Short Description:</label>
+      <em *ngIf="addPForm.controls.productShortDescription?.invalid &&addPForm.controls.productShortDescription?.touched||mouseOverAdd">Required</em>
+      <input (ngModel)="productShortDescription" name="productShortDescription" required id="productShortDescription" type="text" class="form-control" placeholder="Short Description...." />
+    </div>
+    <div class="form-group">
+      <label for="productLongDescription">Long Description:</label>
+      <em *ngIf="addPForm.controls.productLongDescription?.invalid &&addPForm.controls.productLongDescription?.touched||mouseOverAdd"></em>
+      <input (ngModel)="productLongDescription" name="productLongDescription" id="productLongDescription" type="text" class="form-control" placeholder="Long Description...." />
+    </div>
+    <div class="form-group">
+      <label for="productDimensions">Dimensions:</label>
+      <em *ngIf="addPForm.controls.productDimensions?.invalid &&addPForm.controls.productDimensions?.touched||mouseOverAdd"></em>
+      <input (ngModel)="productDimensions" name="productDimensions" id="productDimensions" type="text" class="form-control"
+        placeholder="Dimensions...." />
+    </div>
+   
+    <div class="form-group">
+      <label for="productCategory">Category</label>
+      <select  (change)="onSelectCategory($event)" [(ngModel)]="productCategory"  class="form-control" id="productCategory" required [ngModelOptions]="{standalone: true}">
+        <option *ngFor="let x of names" [value]="x" >{{x}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="productMrp">MRP:</label>
+      <em *ngIf="addPForm.controls.productMrp?.invalid&& addPForm.controls.productMrp?.touched||mouseOverAdd">Required</em>
+      <input (ngModel)="productMrp" name="productMrp" required id="productMrp" type="text" class="form-control" placeholder="MRP..." />
+    </div>
+    <div class="form-group">
+      <label for="productSsp">SSP:</label>
+      <em *ngIf="addPForm.controls.productSsp?.invalid&& addPForm.controls.productSsp?.touched||mouseOverAdd"></em>
+      <input (ngModel)="productSsp" name="productSsp" id="productSsp" type="text" class="form-control" placeholder="SSP..." />
+    </div>
+    <div class="form-group">
+      <label for="productYmp">YMP:</label>
+      <em *ngIf="addPForm.controls.productYmp?.invalid&& addPForm.controls.productYmp?.touched||mouseOverAdd">Required</em>
+      <input (ngModel)="productYmp" name="productYmp" required id="productYmp" type="text" class="form-control" placeholder="YMP..." />
+    </div>
+    <div class="form-group">
+      <label for="productPrimaryImage">Primary Image:</label>
+      <input required type="file" (ngModel)="productPrimaryImage" name="productPrimaryImage" id="productPrimaryImage" class="form-control"
+        (change)="onfileSelected($event)" accept="image/*">
+      <img *ngIf="addPForm.controls.productPrimaryImage" style="height:80px;width:100px" [src]="imageUrl" alt="primary image">
+    </div>
+    <div class="form-group">
+        
+    <label for="otherImages">Other Image:</label>
+      <input  multiple type="file"  name="otherImages" id="otherImages" class="form-control"
+        (change)="onImagesSelected($event)"   accept="image/*" >
+      
+      <!-- <img *ngIf="addPForm.controls.otherImages?.touched" style="height:80px;width:100px" [src]="imageUrl" alt="primary image"> -->
+    </div>
+    <!-- <div class="form-group">
+      <label for="usageInstruction">UsageInstruction:</label>
+      <em *ngIf="addPForm.controls.usageInstruction?.invalid&& addPForm.controls.usageInstruction?.touched">Required</em>
+      <input required type="file" (ngModel)="usageInstruction" name="usageInstruction" id="usageInstruction" class="form-control"
+         accept=".pdf">
+    </div> -->
+    <span *ngIf="!editable" (mouseenter)="mouseOverAdd=true" (mouseleave)="mouseOverAdd=false">
+      <button type="submit" [disabled]="addPForm.invalid" class="btn btn-primary">Add</button>
+    </span>
+    <span  *ngIf="editable">
+    <button type="submit"  class="btn btn-primary">Submit</button>
+    </span>
+    <button type="button" (click)="purgeAdd()" class="btn btn-default">Cancel</button>
+  </form>
+</div>

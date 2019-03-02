@@ -1,0 +1,53 @@
+<div *ngIf="!sellerRegistered">
+<h1>Register</h1>
+<a routerLink="/login">Have an Account</a>
+<hr>
+<div class="col-md-4">
+  <form #signUpForm="ngForm" (ngSubmit)="registerSeller(signUpForm.value)"
+   autocomplete="off" >
+    <div class="form-group" >
+      <label for="companyName">Company Name:</label>
+      <em *ngIf="signUpForm.controls.companyName?.invalid &&signUpForm.controls.companyName?.touched||mouseOverRegister">Required</em>
+      <input (ngModel)="companyName" name="companyName" required id="companyName" type="text" class="form-control" placeholder="Company Name..." />
+    </div>
+    <div class="form-group" >
+      <label for="ownerName">Owner Name:</label>
+      <em *ngIf="signUpForm.controls.ownerName?.invalid &&signUpForm.controls.ownerName?.touched||mouseOverRegister">Required</em>
+      <input (ngModel)="ownerName" name="ownerName" required id="ownerName" type="text" class="form-control" placeholder="Owner Name..." />
+    </div>
+    <div class="form-group" >
+      <label for="companyAddress">Address:</label>
+      <em *ngIf="signUpForm.controls.companyAddress?.invalid &&signUpForm.controls.companyAddress?.touched||mouseOverRegister">Required</em>
+      <input (ngModel)="companyAddress" name="companyAddress" required id="companyAddress" type="text" class="form-control" placeholder="Address...." />
+    </div>
+    <div class="form-group" >
+        <label for="sellerEmail">Email:</label>
+        <em *ngIf="signUpForm.controls.sellerEmail?.invalid &&signUpForm.controls.sellerEmail?.touched||mouseOverRegister">Required</em>
+        <input (ngModel)="sellerEmail" name="sellerEmail" required id="sellerEmail" type="text" class="form-control" placeholder="sellerEmail...." />
+      </div>
+      <div class="form-group" >
+        <label for="sellerTelephone">Telephone:</label>
+        <em *ngIf="signUpForm.controls.sellerTelephone?.invalid &&signUpForm.controls.sellerTelephone?.touched||mouseOverRegister">Required</em>
+        <input (ngModel)="sellerTelephone" name="sellerTelephone" required id="sellerTelephone" type="text" class="form-control" placeholder="Phone...." />
+      </div>
+      <div class="form-group" >
+        <label for="sellerGst">GST Numeber:</label>
+        <em *ngIf="signUpForm.controls.sellerGst?.invalid &&signUpForm.controls.sellerGst?.touched||mouseOverRegister">Required</em>
+        <input (ngModel)="sellerGst" name="sellerGst" required id="sellerGst" type="text" class="form-control" placeholder="GST Number...." />
+      </div>
+      
+    <div class="form-group" >
+      <label for="sellerPassword">Password:</label>
+      <em *ngIf="signUpForm.controls.sellerPassword?.invalid&& signUpForm.controls.sellerPassword?.touched||mouseOverRegister">Required</em>
+      <input (ngModel)="sellerPassword" name="sellerPassword" required id="sellerPassword" type="password" class="form-control"placeholder="Password..." />
+    </div>
+      <span (mouseenter)="mouseOverRegister=true" (mouseleave)="mouseOverRegister=false">
+    <button type="submit" [disabled]="signUpForm.invalid"  class="btn btn-primary">Register</button>
+    </span>
+    <button type="button" (click)="purgeRegister()" class="btn btn-default">Cancel</button>
+  </form>
+</div>
+</div>
+<div *ngIf="sellerRegistered">
+<app-message [seller]="this.registeredSeller"></app-message>
+</div>

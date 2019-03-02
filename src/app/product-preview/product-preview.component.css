@@ -1,0 +1,21 @@
+.container {
+	margin: auto;
+	padding: 10px;
+}
+
+.divLeft {
+	display: block;
+	float: left;
+}
+
+.divRight {
+	display: block;
+	margin-left: 35%;
+}
+
+.divButtonRight {
+	display: block;
+	float: right;
+	margin: auto;
+	padding: 10px;
+}

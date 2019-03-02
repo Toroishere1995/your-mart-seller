@@ -1,0 +1,19 @@
+
+<div class="container">
+
+    <div *ngFor="let product of products">
+        <app-product-preview [product]="product">
+      
+        </app-product-preview>
+        <hr />
+    </div>
+    <div [hidden]="!loading">
+        Loading articles...
+      </div>
+      
+      <div [hidden]="loading || products.length">
+        No articles are here... yet.
+      </div>
+      
+      
+</div>

@@ -1,0 +1,35 @@
+
+<div><h1>Seller Information</h1></div>
+<table ngbTable striped="true" *ngIf="!isLoading">
+  
+  <tbody>
+    <tr >
+      <th scope="row">Seller UUID</th>
+      <td>{{sellerInformation.sellerUid}}</td>
+    </tr>
+    <tr >
+      <th scope="row">Company Name</th>
+      <td>{{sellerInformation.companyName}}</td>
+    </tr>
+    <tr >
+      <th scope="row">Owner Name</th>
+      <td>{{sellerInformation.ownerName}}</td>
+    </tr>
+    <tr >
+      <th scope="row">Seller Status</th>
+      <td>{{sellerInformation.sellerStatus}}</td>
+    </tr>
+    <tr >
+      <th scope="row">Seller Email</th>
+      <td>{{sellerInformation.sellerEmail}}</td>
+    </tr>
+    <tr >
+      <th scope="row">Seller GSTN</th>
+      <td>{{sellerInformation.sellerGst}}</td>
+    </tr>
+    <tr >
+      <th scope="row">Seller Telephone</th>
+      <td>{{sellerInformation.sellerTelephone}}</td>
+    </tr>
+  </tbody>
+</table>

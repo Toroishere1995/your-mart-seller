@@ -1,0 +1,50 @@
+<div class="auth-page">
+  <div class="container page">
+    <div class="row" *ngIf="!statusErrors">
+
+      <div class="col-md-6 offset-md-3 col-xs-12">
+        <h1 class="text-xs-center">{{ title }}</h1>
+        <p class="text-xs-center">
+          <a [routerLink]="['/register']" *ngIf="authType == 'login'">Need an account?</a>
+        </p>
+
+        <span *ngIf="hasErrors">
+            Check Credentials 
+        </span>
+          
+
+        <form [formGroup]="authForm" (ngSubmit)="submitForm()">
+          <fieldset [disabled]="isSubmitting">
+            
+            <fieldset class="form-group">
+              <input
+                formControlName="userName"
+                placeholder="Seller UUID"
+                class="form-control form-control-lg"
+                type="text" />
+            </fieldset>
+            <fieldset class="form-group">
+              <input
+                formControlName="userPassword"
+                placeholder="Password"
+                class="form-control form-control-lg"
+                type="password" />
+            </fieldset>
+            <recaptcha
+          [formControl]="myRecaptcha"
+          (scriptLoad)="onScriptLoad()"
+          (scriptError)="onScriptError()"
+        ></recaptcha>
+            <button class="btn btn-lg btn-primary pull-xs-right" [disabled]="!authForm.valid" type="submit">
+              {{ title }}
+            </button>
+          </fieldset>
+        </form>
+      </div>
+
+    </div>
+    <div *ngIf="statusErrors">
+    <app-error [error]="message"></app-error>
+  </div>
+  </div>
+</div>

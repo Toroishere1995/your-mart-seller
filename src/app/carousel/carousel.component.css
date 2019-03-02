@@ -1,0 +1,25 @@
+#container{
+    margin:5em auto;
+    padding:0;
+    background: #fff;
+
+}
+.itms{
+height:300px;
+width: 300px;
+background: #fff;
+}
+#prev #next{
+    margin-left:0px;
+    margin-right:0px;
+    background-color: red;
+}
+.image{
+    margin: auto;
+}
+.carousel-inner {
+    position: relative;
+    width: 300px;
+    margin: auto;
+    overflow: hidden;
+}

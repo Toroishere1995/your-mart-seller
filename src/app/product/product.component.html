@@ -1,0 +1,57 @@
+<div *ngIf="!isLoaded">
+	Loading...
+</div>
+<div *ngIf="isLoaded">
+	<div class="buttonDiv">
+			<span  >
+					<a class="btn btn-sm btn-outline-secondary" [routerLink]="['/editor', product.productId]">
+					  Edit Product
+					</a>
+				  </span>
+	</div>
+
+<app-carousel [images]="productImages"></app-carousel>
+
+<div class="container">
+		<div class="divLeft">
+			<img img [src]="product.productPrimaryImage"
+				class="img-thumbnail" alt="..." height="200" width="200">
+
+		</div>
+		<div class="divRight">
+			<table class="table table-striped">
+
+				<tbody>
+					<tr>
+						<th scope="row">Product Name</th>
+						<td>{{ product.productName}}</td>
+
+					</tr>
+					<tr>
+						<th scope="row">Product Short Description</th>
+						<td>{{product.productShortDescription}}</td>
+
+					</tr>
+					<tr>
+						<th scope="row">Product Category</th>
+						<td>{{product.productCategory}}</td>
+
+					</tr>
+					<tr>
+						<th scope="row">Product MRP</th>
+						<td>{{product.productMrp}}</td>
+					</tr>
+					<tr>
+						<th scope="row">Product YMP</th>
+						<td>{{product.productYmp}}</td>
+					</tr>
+					<tr>
+						<th scope="row">Product Status</th>
+						<td>{{product.productStatus}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+ </div> 
+ <div class="container"><span>Admin Comment: <b>{{product.productComment}}</b> </span></div>
+</div>
